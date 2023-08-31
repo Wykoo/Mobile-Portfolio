@@ -1,22 +1,44 @@
-import { StyleSheet } from "react-native";
-import React, { Component } from "react";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
-import List from "./List";
-import Options from "./Options";
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
+import List from './List';
+import Options from './Options';
+import Api from './Api';
+import React from 'react';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Tab = createMaterialTopTabNavigator();
+const Tab = createMaterialBottomTabNavigator();
 
 export default function App() {
+
+
   return (
-    <Tab.Navigator style={styles.container}>
-      <Tab.Screen name="Camera" component={List} />
-      <Tab.Screen name="GPS" component={Options} />
+    <Tab.Navigator>
+      <Tab.Screen
+        name="Functions"
+        component={List}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="function" color={color} size={24} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Api"
+        component={Api}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="cloud" color={color} size={24} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Options}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Icon name="information" color={color} size={24} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});

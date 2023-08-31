@@ -5,12 +5,17 @@ import {
   Text,
   View,
   SafeAreaView,
-  Button,
   Image,
+  TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import { Camera, CameraCapturedPicture, CameraType } from "expo-camera";
 import { shareAsync } from "expo-sharing";
 import * as MediaLibrary from "expo-media-library";
+import { FontAwesome } from "@expo/vector-icons";
+
+
+
 
 export default function App() {
   let cameraRef = useRef<Camera | null>(null);
@@ -57,7 +62,6 @@ export default function App() {
     setType((current) =>
       current === CameraType.back ? CameraType.front : CameraType.back
     );
-    console.log(type);
   }
 
   if (hasCameraPermission === undefined) {
@@ -71,11 +75,23 @@ export default function App() {
   }
 
   if (showCamera) {
+    const camerStyle = { 
+      width: Dimensions.get("window").width,
+      height: Dimensions.get("window").width * (3 / 4),
+      flex: 1,
+    };
     return (
-      <Camera style={styles.container} ref={cameraRef} type={type}>
+      <Camera style={camerStyle} ref={cameraRef} type={type}> 
         <View style={styles.buttonContainer}>
-          <Button title="Take Pic" onPress={takePic} />
-          <Button title="Flip Camera" onPress={toggleCameraType} />
+        <TouchableOpacity onPress={toggleCameraType}>
+            <FontAwesome name="refresh" size={50} color="black" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={takePic}>
+            <FontAwesome name="camera" size={50} color="black" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => setShowCamera(false)}> 
+            <FontAwesome name="times-circle" size={50} color="black" />
+          </TouchableOpacity>
         </View>
         <StatusBar style="auto" />
       </Camera>
@@ -83,6 +99,10 @@ export default function App() {
   }
 
   if (photo) {
+
+    const cameraWidth = Dimensions.get("window").width;
+    const cameraHeight = Dimensions.get("window").width * (3/4);
+
     let sharePic = () => {
       shareAsync(photo.uri).then(() => {
         resetCamera();
@@ -94,18 +114,27 @@ export default function App() {
         resetCamera();
       });
     };
-
+ 
     return (
       <SafeAreaView style={styles.container}>
         <Image
-          style={styles.preview}
+          style={{ width: cameraWidth, height: cameraHeight, flex: 1 }}
           source={{ uri: "data:image/jpg;base64," + photo.base64 }}
+          resizeMode="cover"
         />
-        <Button title="Share" onPress={sharePic} />
+        <View style={styles.buttonContainer}>
+        <TouchableOpacity onPress={sharePic}>
+          <FontAwesome name="share" size={40} color="black" />
+        </TouchableOpacity>
         {hasMediaLibraryPermission ? (
-          <Button title="Save" onPress={savePhoto} />
+          <TouchableOpacity onPress={savePhoto}>
+            <FontAwesome name="save" size={40} color="black" />
+          </TouchableOpacity>
         ) : undefined}
-        <Button title="Retake" onPress={resetCamera} />
+        <TouchableOpacity onPress={resetCamera}>
+          <FontAwesome name="undo" size={40} color="black" />
+        </TouchableOpacity>
+        </View>
       </SafeAreaView>
     );
   }
@@ -117,15 +146,14 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "stretch",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-end",
     marginBottom: 10,
     padding: 2,
   },
   preview: {
     flex: 1,
-    width: "100%",
-    height: "100%",
-    resizeMode: "contain",
+    resizeMode: "cover",
   },
 });

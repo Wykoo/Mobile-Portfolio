@@ -1,26 +1,25 @@
-import { View, StyleSheet, Button, KeyboardAvoidingView } from "react-native";
 import React, { useState } from "react";
+import { View, StyleSheet, KeyboardAvoidingView, Button, Text, ActivityIndicator, TextInput } from "react-native";
 import { FIREBASE_AUTH } from "../FirebaseConfig";
-import { ActivityIndicator, TextInput } from "react-native-paper";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const auth = FIREBASE_AUTH;
 
   const SignIn = async () => {
     setLoading(true);
+    setError(""); // Clear any previous errors
     try {
+      if (!email || !password) {
+        throw new Error("Please enter both email and password.");
+      }
       const response = await signInWithEmailAndPassword(auth, email, password);
-      console.log(response);
     } catch (error: any) {
-      console.log(error);
-      alert("Sign in failed: " + error.message);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -28,17 +27,16 @@ export default function Login() {
 
   const signUp = async () => {
     setLoading(true);
+    setError(""); // Clear any previous errors
     try {
-      const response = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-      console.log(response);
+      if (!email || !password) {
+        throw new Error("Please enter both email and password.");
+      }
+
+      const response = await createUserWithEmailAndPassword(auth, email, password);
       alert("Sign Up Correctly!");
     } catch (error: any) {
-      console.log(error);
-      alert("Sign Up failed: " + error.message);
+      setError(error.message);
     } finally {
       setLoading(false);
     }
@@ -53,26 +51,25 @@ export default function Login() {
           placeholder="Email"
           autoCapitalize="none"
           onChangeText={(text) => setEmail(text)}
-        ></TextInput>
+        />
         <TextInput
           value={password}
           style={styles.input}
-          placeholder="password"
+          placeholder="Password"
           autoCapitalize="none"
           onChangeText={(text) => setPassword(text)}
-          secureTextEntry={true}
-        ></TextInput>
+          secureTextEntry
+        />
+
+        {error ? <Text style={styles.errorText}>{error}</Text> : null}
 
         {loading ? (
-          <ActivityIndicator size="large" color="#0000ff" />
+          <ActivityIndicator animating={true} color="#0000ff" size="large" />
         ) : (
           <>
-            <View style={styles.buttonContainer}>
-              <Button title="Login" onPress={SignIn} />
-            </View>
-            <View style={styles.buttonContainer}>
-              <Button title="Create account" onPress={signUp} />
-            </View>
+            <Button title="Login" onPress={SignIn} color="#8e388e" />
+            <View style={styles.buttonSpacer} />
+            <Button title="Create Account" onPress={signUp} color="#8e388e" />
           </>
         )}
       </KeyboardAvoidingView>
@@ -82,20 +79,28 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 20,
     flex: 1,
     justifyContent: "center",
+    padding: 20,
   },
   input: {
-    marginVertical: 5,
-    height: 40,
+    marginVertical: 7,
+    height: 57, // Increased height for better visibility
     borderWidth: 1.5,
     borderRadius: 4,
     padding: 9,
-    backgroundColor: "#fff",
+    backgroundColor: "#9b869b",
   },
-  buttonContainer: {
-    padding: 2,
-    marginTop: 3,
+  errorText: {
+    color: "red",
+    marginVertical: 10,
+    textAlign: "center",
   },
+  buttonSpacer: {
+    height: 8, // Added space between buttons
+  },
+  button: {
+    color: "cyan",
+    fontFamily: 'serif'
+  }
 });
