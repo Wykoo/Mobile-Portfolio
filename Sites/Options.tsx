@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, Image, TextInput, ScrollView } from "react-native";
 import { AntDesign } from "@expo/vector-icons"; // Import ikon z biblioteki Expo
 import * as ImagePicker from "expo-image-picker";
-import { FIREBASE_AUTH } from "../FirebaseConfig";
+import { FIREBASE_AUTH, FIREBASE_DB, FIREBASE_STORAGE } from "../FirebaseConfig";
+import { getDatabase, ref, get, set } from "firebase/database";
 
 const Options = () => {
   const [profileImage, setProfileImage] = useState(require("../photos/beta.jpg"));
@@ -10,6 +11,28 @@ const Options = () => {
   const [surname, setSurname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [isEditing, setIsEditing] = useState(true); 
+  const userEmail = FIREBASE_AUTH.currentUser?.email || "";
+
+  const database = getDatabase();
+  const sanitizedUserEmail = userEmail.replace(".", "_");
+  const userRef = ref(database, `users/${sanitizedUserEmail}`);
+
+  useEffect(() => {
+    // Pobierz dane użytkownika z Firebase Realtime Database
+    get(userRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          const userData = snapshot.val();
+          setName(userData.name);
+          setSurname(userData.surname);
+          setPhoneNumber(userData.phoneNumber);
+          setIsEditing(!(userData.name && userData.surname && userData.phoneNumber));
+        }
+      })
+      .catch((error) => {
+        console.error("Błąd podczas pobierania danych użytkownika:", error);
+      });
+  }, [userEmail]);
 
 
   const pickImage = async () => {
@@ -34,6 +57,22 @@ const Options = () => {
 
   const handleSave = async () => {
     setIsEditing(false);
+
+    // Zapisz dane użytkownika w Firebase Realtime Database
+    const userData = {
+      name,
+      surname,
+      phoneNumber,
+    };
+
+    set(userRef, userData)
+      .then(() => {
+        console.log("Dane użytkownika zapisane pomyślnie.");
+      })
+      .catch((error) => {
+        console.error("Błąd podczas zapisywania danych użytkownika:", error);
+      });
+      
   };
   
 
