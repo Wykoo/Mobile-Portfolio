@@ -22,7 +22,19 @@ My app offers the following key features:
 
       These functions are designed to provide a glimpse of my proficiency in React Native and my ability to create interactive and feature-rich mobile applications. Feel free to explore each function to see my         capabilities in action.
 
-2. **Api** - [Description of Feature 2].
+2. **Api Integration** - The "API Integration" feature in the mobile app showcases real-time currency exchange rates. This feature demonstrates the app's ability to fetch data from an external API and present it to users. Key elements of this feature include:
+
+      Currency Rates Display: Upon launching the app, users can view the current exchange rates for various currencies. The rates are displayed in a clear and organized manner, making it easy for users to stay         updated on currency values.
+
+      Date Information: The app also provides the date of the currency rates, giving users context about when the data was last updated.
+
+      Data Loading Indicator: To enhance the user experience, a loading indicator is displayed while the app fetches data from the API. This ensures that users are aware of ongoing data retrieval.
+
+      Interactive List: The currency rates are presented in an interactive list, allowing users to scroll through and view details such as currency names, codes, bid prices, and ask prices.
+
+      Error Handling: In case of any errors during data retrieval, the app provides appropriate error messages to alert users. This ensures transparency and user-friendliness.
+
+      The "API Integration" feature not only provides valuable information to users but also showcases the app's ability to interact with external data sources and handle various aspects of data loading and            presentation. It serves as an example of efficient data integration within the app.
 3. **Profile** - [Description of Feature 3].
    ...
 
