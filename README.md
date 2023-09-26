@@ -1,76 +1,72 @@
 # Table of Contents
 * [General info](#General-info)
-* [Additional info](#Additional-info)
+* [Features](#Features)
 * [Installation](#Installation)
 * [Usage](#Usage)
 
 ## General Info
-This is 
+Welcome to our mobile app, [App Name], your one-stop solution for [brief description of your app's purpose or functionality].
 
-## Aditional Info
-From the
+## Features
+Our app offers the following key features:
+
+1. **[Feature 1]** - [Description of Feature 1].
+2. **[Feature 2]** - [Description of Feature 2].
+3. **[Feature 3]** - [Description of Feature 3].
+   ...
 
 ## Installation
-1. Clone the repository 
+Follow these steps to get the app up and running on your mobile device:
+
+1. Clone the repository:
 ```
-git clone https://github.com/Wykoo/rectask.git
+git clone https://github.com/Wykoo/MobileApp.git
 ```
 
 2. Change your directory to the project directory
 ```
-cd rectask
+cd MobileApp
 ```
 
-3. Install the required 
+3. Install the required  dependencies:
 ```
-pip install -r requirements.txt
+npm install
 ```
 
-4. Run the Flask app (standard port=5000)
+4. Start the app (ensure you have the necessary development environment set up):
 ```
-flask run
+npm start
 ```
 
 ## Usage
-### Endpoints
+### Screens and Navigation
 
-1. '/avg' - 
-Retrieves the average exchange rate for a specific argument
+Our app consists of the following screens:
 
-Example
-```
-GET /avg?table=A&code=USA&date=2022-04-21
-```
+1. **[Screen 1]** - [Description of Screen 1].
+- [How to navigate to Screen 1].
+- [Usage instructions for Screen 1].
 
-Response
-```
-"0": 3.7191
-```
+2. **[Screen 2]** - [Description of Screen 2].
+- [How to navigate to Screen 2].
+- [Usage instructions for Screen 2].
 
-2. '/max-min-rate' - 
-Retrieves maximum difference between ask and bid prices for a specific argument
+3. **[Screen 3]** - [Description of Screen 3].
+- [How to navigate to Screen 3].
+- [Usage instructions for Screen 3].
+...
 
-Example
-```
-GET /max-min-rate?table=A&code=USA&topCount=10
-```
+### Customization and Settings
 
-Response
-```
-Max: 3.7288, Min: 3.6948
-```
+You can customize and configure the app using the following settings:
 
-3.'buy-ask' - 
-Retrieves maximum difference between highest and lowest prices for a specific argument
+1. **[Setting 1]** - [Description of Setting 1].
+- [How to access Setting 1].
+- [Instructions for configuring Setting 1].
 
-Example
-```
-GET /buy-ask?table=A&code=USA&topCount=10
-```
-
-Response
-```
-Max: 3.7288, Min: 3.6948
-```
+2. **[Setting 2]** - [Description of Setting 2].
+- [How to access Setting 2].
+- [Instructions for configuring Setting 2].
+...
 
 
