@@ -12,15 +12,15 @@ My app offers the following key features:
 
 1. **Functions** - In the "Functions" section of the mobile app, you can explore several interactive features and functionalities that showcase my skills in React Native. These functions allow you to interact with various components and experience different aspects of the app. Here's a brief overview of each function:
 
-Camera: By clicking on the "Camera" button, you can access a camera component that demonstrates how the app interacts with device hardware. This feature showcases my ability to integrate device-specific functionalities seamlessly.
+      Camera: By clicking on the "Camera" button, you can access a camera component that demonstrates how the app interacts with device hardware. This feature showcases my ability to integrate device-specific           functionalities seamlessly.
 
-Banner: The "Banner" feature demonstrates dynamic animations and interactions. Click the "Banner" button to toggle the visibility of an animated banner. You'll experience how the app can provide engaging and interactive content.
+      Banner: The "Banner" feature demonstrates dynamic animations and interactions. Click the "Banner" button to toggle the visibility of an animated banner. You'll experience how the app can provide engaging          and interactive content.
 
-GPS: The "GPS" function allows you to explore location-based services. By tapping on the "GPS" button, you can enable or disable GPS functionality, demonstrating how the app can interact with the device's GPS capabilities.
+      GPS: The "GPS" function allows you to explore location-based services. By tapping on the "GPS" button, you can enable or disable GPS functionality, demonstrating how the app can interact with the device's          GPS capabilities.
 
-Game: The "Game" feature showcases my skills in creating interactive games within the app. Clicking on the "Game" button activates a gaming component, providing an entertaining and engaging experience.
+      Game: The "Game" feature showcases my skills in creating interactive games within the app. Clicking on the "Game" button activates a gaming component, providing an entertaining and engaging experience.
 
-These functions are designed to provide a glimpse of my proficiency in React Native and my ability to create interactive and feature-rich mobile applications. Feel free to explore each function to see my capabilities in action.
+      These functions are designed to provide a glimpse of my proficiency in React Native and my ability to create interactive and feature-rich mobile applications. Feel free to explore each function to see my         capabilities in action.
 
 2. **Api** - [Description of Feature 2].
 3. **Profile** - [Description of Feature 3].
