@@ -10,9 +10,9 @@ Welcome to our mobile app, [App Name], your one-stop solution for [brief descrip
 ## Features
 Our app offers the following key features:
 
-1. **[Feature 1]** - [Description of Feature 1].
-2. **[Feature 2]** - [Description of Feature 2].
-3. **[Feature 3]** - [Description of Feature 3].
+1. **Functions** - [Description of Feature 1].
+2. **Api** - [Description of Feature 2].
+3. **Profile** - [Description of Feature 3].
    ...
 
 ## Installation
