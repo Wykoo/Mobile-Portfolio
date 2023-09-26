@@ -78,34 +78,17 @@ npm start
 ```
 
 ## Usage
-### Screens and Navigation
-
-Our app consists of the following screens:
-
-1. **[Screen 1]** - [Description of Screen 1].
-- [How to navigate to Screen 1].
-- [Usage instructions for Screen 1].
-
-2. **[Screen 2]** - [Description of Screen 2].
-- [How to navigate to Screen 2].
-- [Usage instructions for Screen 2].
-
-3. **[Screen 3]** - [Description of Screen 3].
-- [How to navigate to Screen 3].
-- [Usage instructions for Screen 3].
-...
 
 ### Customization and Settings
 
-You can customize and configure the app using the following settings:
+You can customize and configure the Mobile Porftfolio using the following settings:
 
-1. **[Setting 1]** - [Description of Setting 1].
-- [How to access Setting 1].
-- [Instructions for configuring Setting 1].
+1. **Edit Profile Information** - Users can modify their profile information, including their first name, last name, and phone number.
+- To access profile editing, users can click the "Edit" button on the profile screen.
+- To make changes, users can simply update the desired fields and click the "Save" button.
 
-2. **[Setting 2]** - [Description of Setting 2].
-- [How to access Setting 2].
-- [Instructions for configuring Setting 2].
+2. **Change Profile Picture** - Users can upload or change their profile picture.
+- To change the profile picture, users can tap on their profile picture, which will open an image picker allowing them to select a new image from their device's gallery. Please note that changes to the profile picture are temporary and will only be visible during the current session; they will not be saved to the app's data storage due to limitations.
 ...
 
 
