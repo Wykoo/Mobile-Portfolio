@@ -35,7 +35,23 @@ My app offers the following key features:
       Error Handling: In case of any errors during data retrieval, the app provides appropriate error messages to alert users. This ensures transparency and user-friendliness.
 
       The "API Integration" feature not only provides valuable information to users but also showcases the app's ability to interact with external data sources and handle various aspects of data loading and            presentation. It serves as an example of efficient data integration within the app.
-3. **Profile** - [Description of Feature 3].
+3. **Profile Management** -  The "Profile Management" feature in the mobile app provides users with the ability to personalize and manage their profile information. This feature empowers users to tailor their profile according to their preferences. Key elements of this feature include:
+
+      Profile Information: Users can view and edit their personal details, including their first name, last name, and phone number. The app provides an intuitive form for users to make changes to their                   information.
+
+      Profile Image: Users can upload or change their profile picture. The app includes an image picker that allows users to select an image from their device's gallery. The selected image is then displayed as           their profile picture.
+
+      Editing Mode: Users have the flexibility to edit their profile information. When in editing mode, users can modify their details and save the changes. A "Save" button enables users to update their                   information.
+
+      User Data Storage: User profile data is securely stored and associated with their account. The app employs Firebase Realtime Database to manage and store user information.
+
+      Tabbed Content: The feature includes a tabbed view that allows users to switch between viewing their CV and Cover Letter. This provides a convenient way for users to manage their professional information.
+
+      Logout: Users can easily log out of their account by clicking the "Logout" button, which helps ensure the security of their account.
+
+      User-Friendly Interface: The app's user interface is designed to be user-friendly, making it easy for users to navigate and manage their profile.
+
+      The "Profile Management" feature not only enhances personalization but also contributes to the overall user experience by allowing users to maintain and update their professional information with ease.
    ...
 
 ## Installation
